@@ -1,0 +1,13 @@
+{% extends 'solicitud/base.html' %}
+{% block title %}Consulta{% endblock title %}
+{% block content %}
+    <form action="{% url 'solicitud:result' %}" method="get">
+        <label for="startDate">Fecha inicial: </label>
+        <input type="date" name="startDate" id="startDate">
+        <br>
+        <label for="endDate">Fecha final: </label>
+        <input type="date" name="endDate" id="endDate">
+        <br>
+        <input type="submit" value="Consultar">
+    </form>
+{% endblock content %}

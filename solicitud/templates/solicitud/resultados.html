@@ -1,0 +1,61 @@
+{% extends 'solicitud/base.html' %}
+{% block title %}Resultados{% endblock title %}
+{% block content %}
+    <table>
+        <tr>
+            <th colspan="2">Dolar</th>
+        </tr>
+        <tr>
+            <th>Fecha</th>
+            <th>Cambio</th>
+        </tr>
+    {% for entry in dolar.datos %}
+        <tr>
+            <td>{{ entry.fecha }}</td>
+            <td>{{ entry.dato }}</td>
+        </tr>    
+    {% endfor %}
+        <tr>
+            <th>Mean</th>
+            <td>{{ dolar.mean }}</td>
+        </tr>
+        <tr>
+            <th>Min</th>
+            <td>{{ dolar.min }}</td>
+        </tr>
+        <tr>
+            <th>Max</th>
+            <td>{{ dolar.max }}</td>
+        </tr>
+    </table>
+    {{ dolar.plot | safe }}
+    <br>
+    <table>
+        <tr>
+            <th colspan="2">UDIS</th>
+        </tr>
+        <tr>
+            <th>Fecha</th>
+            <th>Valor</th>
+        </tr>
+    {% for entry in udis.datos %}
+        <tr>
+            <td>{{ entry.fecha }}</td>
+            <td>{{ entry.dato }}</td>
+        </tr>    
+    {% endfor %}
+    <tr>
+        <th>Mean</th>
+        <td>{{ udis.mean }}</td>
+    </tr>
+    <tr>
+        <th>Min</th>
+        <td>{{ udis.min }}</td>
+    </tr>
+    <tr>
+        <th>Max</th>
+        <td>{{ udis.max }}</td>
+    </tr>
+    </table>
+    {{ udis.plot | safe }}
+{% endblock content %}
